@@ -1,3 +1,5 @@
+import "./index.css";
+
 const numberButtons = document.querySelectorAll(".number-btn");
 
 const calculatorDisplay = document.getElementById("display");
