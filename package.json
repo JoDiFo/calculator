@@ -9,7 +9,8 @@
     "build-prod": "webpack --env mode=production",
     "start": "webpack serve",
     "lint": "eslint .",
-    "lint-fix": "eslint . --fix"
+    "lint-fix": "eslint . --fix",
+    "prepare": "husky"
   },
   "keywords": [],
   "author": "",

@@ -20,7 +20,7 @@ const operation = {
 };
 
 numberButtons.forEach((btn) =>
-  btn.addEventListener("click", (e) => {
+  btn.addEventListener("click", () => {
     if (displayedValue === "0") {
       displayedValue = btn.innerText;
     } else {
@@ -31,14 +31,14 @@ numberButtons.forEach((btn) =>
   })
 );
 
-resetButton.addEventListener("click", (e) => {
+resetButton.addEventListener("click", () => {
   displayedValue = "0";
   operation.action = "0";
   operation.firstValue = 0;
   calculatorDisplay.innerText = displayedValue;
 });
 
-plusButton.addEventListener("click", (e) => {
+plusButton.addEventListener("click", () => {
   operation.firstValue = Number(displayedValue);
   operation.action = "+";
 
@@ -47,7 +47,7 @@ plusButton.addEventListener("click", (e) => {
   calculatorDisplay.innerText = displayedValue;
 });
 
-minusButton.addEventListener("click", (e) => {
+minusButton.addEventListener("click", () => {
   operation.firstValue = Number(displayedValue);
   operation.action = "-";
 
@@ -56,7 +56,7 @@ minusButton.addEventListener("click", (e) => {
   calculatorDisplay.innerText = displayedValue;
 });
 
-multiplyButton.addEventListener("click", (e) => {
+multiplyButton.addEventListener("click", () => {
   operation.firstValue = Number(displayedValue);
   operation.action = "*";
 
@@ -65,7 +65,7 @@ multiplyButton.addEventListener("click", (e) => {
   calculatorDisplay.innerText = displayedValue;
 });
 
-divideButton.addEventListener("click", (e) => {
+divideButton.addEventListener("click", () => {
   operation.firstValue = Number(displayedValue);
   operation.action = "/";
 
