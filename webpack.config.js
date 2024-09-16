@@ -5,7 +5,7 @@ import { buildConfig } from "./config/webpack/buildConfig.js";
 
 export default (env) => {
   const dirname = path.dirname(fileURLToPath(import.meta.url));
-  console.log(dirname)
+  console.log(dirname);
 
   const mode = env.mode || "development";
   const isDev = mode === "development";

@@ -28,7 +28,7 @@ numberButtons.forEach((btn) =>
     }
 
     calculatorDisplay.innerText = displayedValue;
-  })
+  }),
 );
 
 resetButton.addEventListener("click", () => {
@@ -76,7 +76,7 @@ divideButton.addEventListener("click", () => {
 
 calculateButton.addEventListener("click", () => {
   displayedValue = eval(
-    `${operation.firstValue}${operation.action}${displayedValue}`
+    `${operation.firstValue}${operation.action}${displayedValue}`,
   );
   operation.firstValue = Number(displayedValue);
 
