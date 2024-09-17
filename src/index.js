@@ -90,10 +90,29 @@ percentButton.addEventListener("click", () => {
 });
 
 calculateButton.addEventListener("click", () => {
-  displayedValue = eval(
-    `${operation.firstValue}${operation.action}${displayedValue}`,
-  );
-  operation.firstValue = Number(displayedValue);
+  const { firstValue, action } = operation;
 
+  operation.firstValue = calculateValue(
+    Number(firstValue),
+    Number(displayedValue),
+    action,
+  );
+
+  displayedValue = operation.firstValue;
   calculatorDisplay.innerText = displayedValue;
 });
+
+function calculateValue(first, second, operation) {
+  switch (operation) {
+    case "+":
+      return first + second;
+    case "-":
+      return first - second;
+    case "*":
+      return first * second;
+    case "/":
+      return first / second;
+    default:
+      throw new Error("Unknown Operation");
+  }
+}
