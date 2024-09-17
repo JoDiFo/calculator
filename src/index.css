@@ -14,25 +14,27 @@ body {
 .calculator {
   display: flex;
   flex-direction: column;
-  /* gap: 3rem; */
   background-color: #35353b;
   width: 350px;
   height: 500px;
-  border: 1px solid #b9b9b9;
+  border: 1px solid #7e7e7e;
   border-radius: 4px;
+  padding: 0.2rem;
 }
 
 .button-container {
   display: grid;
-  /* grid-template-areas:
-    "% negate clear +"
-    "7 8 9 -"
-    "4 5 6 *"
-    "1 2 3 /"
-    "0 0 comma ="; */
   grid-template-columns: repeat(4, 1fr);
-  gap: 2rem;
+  gap: 1rem;
   flex-grow: 1;
+}
+
+.functional-button {
+  background-color: #ffad2a;
+}
+
+.double {
+  grid-column: span 2;
 }
 
 button {
@@ -55,9 +57,6 @@ button:active {
 #display {
   font-size: 2rem;
   padding: 2rem 0.4rem;
-  outline: none;
-  border: none;
-  /* background-color: #555557; */
   color: #f2f2f2;
   text-align: right;
 }
