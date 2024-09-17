@@ -6,7 +6,8 @@ const calculatorDisplay = document.getElementById("display");
 
 const calculateButton = document.getElementById("calculate");
 const resetButton = document.getElementById("reset");
-
+const percentButton = document.getElementById("percent");
+const negateButton = document.getElementById("negate");
 const plusButton = document.getElementById("plus");
 const minusButton = document.getElementById("minus");
 const multiplyButton = document.getElementById("multiply");
@@ -71,6 +72,20 @@ divideButton.addEventListener("click", () => {
 
   displayedValue = "0";
 
+  calculatorDisplay.innerText = displayedValue;
+});
+
+negateButton.addEventListener("click", () => {
+  operation.firstValue = Number(displayedValue) * -1;
+
+  displayedValue = operation.firstValue;
+  calculatorDisplay.innerText = displayedValue;
+});
+
+percentButton.addEventListener("click", () => {
+  operation.firstValue = Number(displayedValue) / 100;
+
+  displayedValue = operation.firstValue;
   calculatorDisplay.innerText = displayedValue;
 });
 
