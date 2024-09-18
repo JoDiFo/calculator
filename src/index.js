@@ -28,6 +28,51 @@ window.addEventListener("load", () => {
 
 const calculator = new Calculator(calculatorDisplay);
 
+document.body.addEventListener("keydown", (e) => {
+  const key = e.key.toLowerCase();
+
+  switch (key) {
+    case "1":
+    case "2":
+    case "3":
+    case "4":
+    case "5":
+    case "6":
+    case "7":
+    case "8":
+    case "9":
+    case "0":
+    case ",":
+      calculator.handleValueInput(key);
+      break;
+    case "+":
+      calculator.handleAdd();
+      break;
+    case "-":
+      calculator.handleSubtract();
+      break;
+    case "*":
+      calculator.handleMultiply();
+      break;
+    case "/":
+      calculator.handleMultiply();
+      break;
+    case "%":
+      calculator.handleMultiply();
+      break;
+    case "n":
+      calculator.handleNegate();
+      break;
+    case "c":
+      calculator.handleReset();
+      break;
+    case "=":
+    case "enter":
+      calculator.handleCalculate();
+      break;
+  }
+});
+
 numberButtons.forEach((btn) =>
   btn.addEventListener("click", () => {
     calculator.handleValueInput(btn.innerText);
