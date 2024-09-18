@@ -18,6 +18,17 @@ export class Calculator {
     }
   }
 
+  handleDelete() {
+    this.display.innerText = this.display.innerText.substring(
+      0,
+      this.display.innerText.length - 1,
+    );
+
+    if (this.display.innerText === "") {
+      this.display.innerText = "0";
+    }
+  }
+
   handleReset() {
     this.display.innerText = "0";
     this.action = "";

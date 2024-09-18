@@ -59,6 +59,9 @@ document.body.addEventListener("keydown", (e) => {
     case ",":
       calculator.handleValueInput(key);
       break;
+    case "backspace":
+      calculator.handleDelete();
+      break;
     case "+":
       calculator.handleAdd();
       break;
