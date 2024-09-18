@@ -1,5 +1,10 @@
 @import url(./themeSwitcher.css);
 
+@font-face {
+  font-family: Roboto;
+  src: url(./assets/fonts/Roboto-Regular.woff);
+}
+
 body.light {
   --background: #f2f2f2;
   --calculator-background: #d1d1d1;
@@ -22,6 +27,7 @@ body.dark {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: Roboto, sans-serif;
 }
 
 body {
