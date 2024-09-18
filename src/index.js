@@ -1,3 +1,5 @@
+import { switchTheme, loadTheme } from "./themeSwitcher.js";
+
 import "./index.css";
 
 const numberButtons = document.querySelectorAll(".number-btn");
@@ -12,6 +14,16 @@ const plusButton = document.getElementById("plus");
 const minusButton = document.getElementById("minus");
 const multiplyButton = document.getElementById("multiply");
 const divideButton = document.getElementById("divide");
+
+const themeButton = document.getElementById("theme-button");
+
+themeButton.addEventListener("click", () => {
+  switchTheme();
+});
+
+window.addEventListener("load", () => {
+  loadTheme();
+});
 
 let displayedValue = "0";
 
