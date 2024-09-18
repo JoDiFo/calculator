@@ -1,5 +1,5 @@
 import { switchTheme, loadTheme } from "./themeSwitcher.js";
-import { toNumber, calculateValue, toString } from "./utils.js";
+import { Calculator } from "./calculator.js";
 
 import "./index.css";
 
@@ -26,97 +26,42 @@ window.addEventListener("load", () => {
   loadTheme();
 });
 
-let displayedValue = "0";
-
-const operation = {
-  firstValue: 0,
-  action: "",
-};
+const calculator = new Calculator(calculatorDisplay);
 
 numberButtons.forEach((btn) =>
   btn.addEventListener("click", () => {
-    if (displayedValue === "0") {
-      displayedValue = btn.innerText;
-    } else {
-      displayedValue += btn.innerText;
-    }
-
-    calculatorDisplay.innerText = displayedValue;
+    calculator.handleValueInput(btn.innerText);
   }),
 );
 
 resetButton.addEventListener("click", () => {
-  displayedValue = "0";
-  operation.action = "0";
-  operation.firstValue = 0;
-  calculatorDisplay.innerText = displayedValue;
+  calculator.handleReset();
 });
 
 plusButton.addEventListener("click", () => {
-  operation.firstValue = toNumber(displayedValue);
-  operation.action = "+";
-
-  displayedValue = "0";
-
-  calculatorDisplay.innerText = displayedValue;
+  calculator.handleAdd();
 });
 
 minusButton.addEventListener("click", () => {
-  operation.firstValue = toNumber(displayedValue);
-  operation.action = "-";
-
-  displayedValue = "0";
-
-  calculatorDisplay.innerText = displayedValue;
+  calculator.handleSubtract();
 });
 
 multiplyButton.addEventListener("click", () => {
-  operation.firstValue = toNumber(displayedValue);
-  operation.action = "*";
-
-  displayedValue = "0";
-
-  calculatorDisplay.innerText = displayedValue;
+  calculator.handleMultiply();
 });
 
 divideButton.addEventListener("click", () => {
-  operation.firstValue = toNumber(displayedValue);
-  operation.action = "/";
-
-  displayedValue = "0";
-
-  calculatorDisplay.innerText = displayedValue;
+  calculator.handleDivide();
 });
 
 negateButton.addEventListener("click", () => {
-  operation.firstValue = toNumber(displayedValue) * -1;
-
-  displayedValue = toString(operation.firstValue);
-  calculatorDisplay.innerText = displayedValue;
+  calculator.handleNegate();
 });
 
 percentButton.addEventListener("click", () => {
-  operation.firstValue = toNumber(displayedValue) / 100;
-
-  displayedValue = toString(operation.firstValue);
-  calculatorDisplay.innerText = displayedValue;
+  calculator.handlePercentage();
 });
 
 calculateButton.addEventListener("click", () => {
-  const { firstValue, action } = operation;
-
-  if (action !== "") {
-    operation.firstValue = calculateValue(
-      firstValue,
-      toNumber(displayedValue),
-      action,
-    );
-
-    operation.action = "";
-  } else {
-    operation.firstValue = toNumber(displayedValue);
-  }
-
-  displayedValue = toString(operation.firstValue);
-  calculatorDisplay.innerText = displayedValue;
+  calculator.handleCalculate();
 });
