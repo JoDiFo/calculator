@@ -1,0 +1,44 @@
+#help-button {
+  position: fixed;
+  right: 20px;
+  top: 20px;
+  background-color: var(--calculator-background);
+  width: 25px;
+  height: 25px;
+  border-radius: 20px;
+  font-size: 18px;
+  color: var(--functional-button-background);
+  display: grid;
+  place-content: center;
+  cursor: pointer;
+  border: none;
+}
+
+@keyframes slideFromRight {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.help-block {
+  position: fixed;
+  right: 50px;
+  top: 20px;
+  background-color: var(--calculator-background);
+  color: var(--font-color);
+  font-size: 16px;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}
+
+.hidden {
+  display: none;
+}
+
+.appear {
+  animation: slideFromRight 0.3s;
+}

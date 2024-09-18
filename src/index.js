@@ -1,5 +1,6 @@
 import { switchTheme, loadTheme } from "./themeSwitcher.js";
 import { Calculator } from "./calculator.js";
+import { handleCloseHelpBlockClass, handleOpenHelpBlockClass } from "./help.js";
 
 import "./index.css";
 
@@ -18,12 +19,25 @@ const divideButton = document.getElementById("divide");
 
 const themeButton = document.getElementById("theme-button");
 
+const helpButton = document.getElementById("help-button");
+const helpBlock = document.getElementById("help-block");
+
 themeButton.addEventListener("click", () => {
   switchTheme();
 });
 
 window.addEventListener("load", () => {
   loadTheme();
+});
+
+helpButton.addEventListener("click", (e) => {
+  e.stopPropagation();
+
+  handleOpenHelpBlockClass(helpBlock);
+});
+
+document.body.addEventListener("click", () => {
+  handleCloseHelpBlockClass(helpBlock);
 });
 
 const calculator = new Calculator(calculatorDisplay);
@@ -69,6 +83,9 @@ document.body.addEventListener("keydown", (e) => {
     case "=":
     case "enter":
       calculator.handleCalculate();
+      break;
+    case "f1":
+      handleOpenHelpBlockClass(helpBlock);
       break;
   }
 });
