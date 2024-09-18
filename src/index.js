@@ -72,10 +72,10 @@ document.body.addEventListener("keydown", (e) => {
       calculator.handleMultiply();
       break;
     case "/":
-      calculator.handleMultiply();
+      calculator.handleDivide();
       break;
     case "%":
-      calculator.handleMultiply();
+      calculator.handlePercentage();
       break;
     case "n":
       calculator.handleNegate();
