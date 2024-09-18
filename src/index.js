@@ -1,4 +1,5 @@
 import { switchTheme, loadTheme } from "./themeSwitcher.js";
+import { toNumber, calculateValue, toString } from "./utils.js";
 
 import "./index.css";
 
@@ -52,7 +53,7 @@ resetButton.addEventListener("click", () => {
 });
 
 plusButton.addEventListener("click", () => {
-  operation.firstValue = Number(displayedValue);
+  operation.firstValue = toNumber(displayedValue);
   operation.action = "+";
 
   displayedValue = "0";
@@ -61,7 +62,7 @@ plusButton.addEventListener("click", () => {
 });
 
 minusButton.addEventListener("click", () => {
-  operation.firstValue = Number(displayedValue);
+  operation.firstValue = toNumber(displayedValue);
   operation.action = "-";
 
   displayedValue = "0";
@@ -70,7 +71,7 @@ minusButton.addEventListener("click", () => {
 });
 
 multiplyButton.addEventListener("click", () => {
-  operation.firstValue = Number(displayedValue);
+  operation.firstValue = toNumber(displayedValue);
   operation.action = "*";
 
   displayedValue = "0";
@@ -79,7 +80,7 @@ multiplyButton.addEventListener("click", () => {
 });
 
 divideButton.addEventListener("click", () => {
-  operation.firstValue = Number(displayedValue);
+  operation.firstValue = toNumber(displayedValue);
   operation.action = "/";
 
   displayedValue = "0";
@@ -88,43 +89,34 @@ divideButton.addEventListener("click", () => {
 });
 
 negateButton.addEventListener("click", () => {
-  operation.firstValue = Number(displayedValue) * -1;
+  operation.firstValue = toNumber(displayedValue) * -1;
 
-  displayedValue = operation.firstValue;
+  displayedValue = toString(operation.firstValue);
   calculatorDisplay.innerText = displayedValue;
 });
 
 percentButton.addEventListener("click", () => {
-  operation.firstValue = Number(displayedValue) / 100;
+  operation.firstValue = toNumber(displayedValue) / 100;
 
-  displayedValue = operation.firstValue;
+  displayedValue = toString(operation.firstValue);
   calculatorDisplay.innerText = displayedValue;
 });
 
 calculateButton.addEventListener("click", () => {
   const { firstValue, action } = operation;
 
-  operation.firstValue = calculateValue(
-    Number(firstValue),
-    Number(displayedValue),
-    action,
-  );
+  if (action !== "") {
+    operation.firstValue = calculateValue(
+      firstValue,
+      toNumber(displayedValue),
+      action,
+    );
 
-  displayedValue = operation.firstValue;
+    operation.action = "";
+  } else {
+    operation.firstValue = toNumber(displayedValue);
+  }
+
+  displayedValue = toString(operation.firstValue);
   calculatorDisplay.innerText = displayedValue;
 });
-
-function calculateValue(first, second, operation) {
-  switch (operation) {
-    case "+":
-      return first + second;
-    case "-":
-      return first - second;
-    case "*":
-      return first * second;
-    case "/":
-      return first / second;
-    default:
-      throw new Error("Unknown Operation");
-  }
-}
