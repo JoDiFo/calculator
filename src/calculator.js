@@ -7,7 +7,7 @@ import {
   SMALL_MEMO_FONT_SIZE,
   MAX_MEMO_LENGTH,
 } from "./constants.js";
-import { toNumber, calculateValue, toString } from "./utils.js";
+import { toNumber, calculateValue, toString } from "./utils/index.js";
 
 export class Calculator {
   constructor(display, memoDisplay) {

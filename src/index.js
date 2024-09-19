@@ -2,7 +2,7 @@ import { switchTheme, loadTheme } from "./themeSwitcher.js";
 import { Calculator } from "./calculator.js";
 import { handleCloseHelpBlockClass, handleOpenHelpBlockClass } from "./help.js";
 
-import "./index.css";
+import "./styles/index.css";
 
 const numberButtons = document.querySelectorAll(".number-btn");
 
