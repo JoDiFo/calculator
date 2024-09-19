@@ -28,6 +28,8 @@ export class Calculator {
     } else {
       this.firstValue = toNumber(this.display.innerText);
     }
+
+    console.log(this.firstValue, this.secondValue);
   }
 
   updateFontSize() {
@@ -153,6 +155,8 @@ export class Calculator {
     } else {
       this.firstValue = toNumber(this.display.innerText);
     }
+
+    console.log(this.firstValue, this.secondValue);
 
     this.display.innerText = toString(this.firstValue);
     this.memoDisplay.innerText = `${toString(prevValue)} ${this.action} ${toString(this.secondValue)} =`;
