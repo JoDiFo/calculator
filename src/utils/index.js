@@ -1,3 +1,5 @@
+import { MAX_SMALL_DISPLAY_LENGTH } from "../constants.js";
+
 /**
  *
  * @param {string} str string to convert
@@ -6,18 +8,24 @@
 
 export function toNumber(str) {
   if (typeof str === "string") {
-    return BigInt(str.split(",").join("."));
+    const bigInt = BigInt(str.split(",").join("."));
+    if (str.length > MAX_SMALL_DISPLAY_LENGTH) {
+      return Number(bigInt);
+    }
+
+    return bigInt;
   }
+
   return str;
 }
 
 /**
  *
- * @param {number} num number to convert
+ * @param {BigInt} num number to convert
  * @returns converted number
  */
 export function toString(num) {
-  return num.toString().split(".").join(",");
+  return Number(num).toString().split(".").join(",");
 }
 
 /**
