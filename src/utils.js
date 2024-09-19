@@ -6,7 +6,7 @@
 
 export function toNumber(str) {
   if (typeof str === "string") {
-    return Number(str.split(",").join("."));
+    return BigInt(str.split(",").join("."));
   }
   return str;
 }
