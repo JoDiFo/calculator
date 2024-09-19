@@ -10,7 +10,9 @@ export class Calculator {
 
   handleValueInput(value) {
     if (value === ",") {
-      this.display.innerText += value;
+      if (!this.display.innerText.includes(",")) {
+        this.display.innerText += value;
+      }
     } else if (this.display.innerText === "0") {
       this.display.innerText = value;
     } else {
