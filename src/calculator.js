@@ -1,3 +1,12 @@
+import {
+  DISPLAY_SMALL_FONT_SIZE,
+  DISPLAY_BIG_FONT_SIZE,
+  MAX_BIG_DISPLAY_LENGTH,
+  MAX_SMALL_DISPLAY_LENGTH,
+  BIG_MEMO_FONT_SIZE,
+  SMALL_MEMO_FONT_SIZE,
+  MAX_MEMO_LENGTH,
+} from "./constants.js";
 import { toNumber, calculateValue, toString } from "./utils.js";
 
 export class Calculator {
@@ -21,7 +30,25 @@ export class Calculator {
     }
   }
 
+  updateFontSize() {
+    if (this.display.innerText.length >= MAX_BIG_DISPLAY_LENGTH - 2) {
+      this.display.style.fontSize = `${DISPLAY_SMALL_FONT_SIZE}px`;
+    } else {
+      this.display.style.fontSize = `${DISPLAY_BIG_FONT_SIZE}px`;
+    }
+
+    if (this.memoDisplay.innerText.length >= MAX_MEMO_LENGTH - 2) {
+      this.memoDisplay.style.fontSize = `${SMALL_MEMO_FONT_SIZE}px`;
+    } else {
+      this.memoDisplay.style.fontSize = `${BIG_MEMO_FONT_SIZE}px`;
+    }
+  }
+
   handleValueInput(value) {
+    if (this.display.innerText.length >= MAX_SMALL_DISPLAY_LENGTH) {
+      return;
+    }
+
     if (value === ",") {
       if (!this.display.innerText.includes(",")) {
         this.display.innerText += value;
@@ -32,6 +59,7 @@ export class Calculator {
       this.display.innerText += value;
     }
 
+    this.updateFontSize();
     this.updateValues();
   }
 
@@ -45,6 +73,7 @@ export class Calculator {
       this.display.innerText = "0";
     }
 
+    this.updateFontSize();
     this.updateValues();
   }
 
@@ -54,6 +83,7 @@ export class Calculator {
     this.action = "";
     this.firstValue = 0;
     this.secondValue = 0;
+    this.updateFontSize();
   }
 
   handleAdd() {
@@ -115,5 +145,6 @@ export class Calculator {
 
     this.display.innerText = toString(this.firstValue);
     this.memoDisplay.innerText = `${toString(prevValue)} ${this.action} ${toString(this.secondValue)} =`;
+    this.updateFontSize();
   }
 }

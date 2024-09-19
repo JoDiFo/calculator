@@ -4,3 +4,12 @@ export const LOCAL_STORAGE_THEME_KEY = "theme";
 
 export const HIDDEN_CLASS = "hidden";
 export const APPEAR_CLASS = "appear";
+
+export const MAX_BIG_DISPLAY_LENGTH = 16;
+export const MAX_SMALL_DISPLAY_LENGTH = 21;
+export const DISPLAY_BIG_FONT_SIZE = 32;
+export const DISPLAY_SMALL_FONT_SIZE = 24;
+
+export const MAX_MEMO_LENGTH = 25;
+export const SMALL_MEMO_FONT_SIZE = 16;
+export const BIG_MEMO_FONT_SIZE = 20;
