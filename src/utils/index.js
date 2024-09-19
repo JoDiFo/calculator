@@ -21,7 +21,7 @@ export function toNumber(str) {
 
 /**
  *
- * @param {BigInt} num number to convert
+ * @param {bigint} num number to convert
  * @returns converted number
  */
 export function toString(num) {
@@ -30,8 +30,8 @@ export function toString(num) {
 
 /**
  *
- * @param {number} first first value
- * @param {number} second second value
+ * @param {bigint} first first value
+ * @param {bigint} second second value
  * @param {string} operation operation to perform
  * @returns result of the operation
  */
@@ -44,7 +44,7 @@ export function calculateValue(first, second, operation) {
     case "*":
       return first * second;
     case "/":
-      return first / second;
+      return Number(first) / Number(second);
     default:
       throw new Error("Unknown Operation");
   }
