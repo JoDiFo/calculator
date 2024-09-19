@@ -1,5 +1,6 @@
 @import url(./themeSwitcher.css);
 @import url(./help.css);
+@import url(./display.css);
 
 @font-face {
   font-family: Roboto;
@@ -11,7 +12,7 @@ body.light {
   --calculator-background: #d1d1d1;
   --border: #35353b;
   --button-background: #f2f2f2;
-  --functional-button-background: #ffad2a;
+  --functional-button-background: #2a9fff;
   --font-color: #1c1c24;
 }
 
@@ -79,11 +80,4 @@ button:hover {
 
 button:active {
   opacity: 0.6;
-}
-
-#display {
-  font-size: 32px;
-  padding: 32px 12px;
-  color: var(--font-color);
-  text-align: right;
 }

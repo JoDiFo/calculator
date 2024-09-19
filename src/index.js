@@ -7,6 +7,7 @@ import "./index.css";
 const numberButtons = document.querySelectorAll(".number-btn");
 
 const calculatorDisplay = document.getElementById("display");
+const memoDisplay = document.getElementById("memo-display");
 
 const calculateButton = document.getElementById("calculate");
 const resetButton = document.getElementById("reset");
@@ -40,7 +41,7 @@ document.body.addEventListener("click", () => {
   handleCloseHelpBlockClass(helpBlock);
 });
 
-const calculator = new Calculator(calculatorDisplay);
+const calculator = new Calculator(calculatorDisplay, memoDisplay);
 
 document.body.addEventListener("keydown", (e) => {
   const key = e.key.toLowerCase();

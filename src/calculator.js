@@ -1,11 +1,24 @@
 import { toNumber, calculateValue, toString } from "./utils.js";
 
 export class Calculator {
-  constructor(display) {
+  constructor(display, memoDisplay) {
     this.display = display;
+    this.memoDisplay = memoDisplay;
+
     this.display.innerText = "0";
-    this.storedValue = 0;
+    this.memoDisplay.innerText = "";
+
+    this.firstValue = 0;
+    this.secondValue = 0;
     this.action = "";
+  }
+
+  updateValues() {
+    if (this.action) {
+      this.secondValue = toNumber(this.display.innerText);
+    } else {
+      this.firstValue = toNumber(this.display.innerText);
+    }
   }
 
   handleValueInput(value) {
@@ -18,6 +31,8 @@ export class Calculator {
     } else {
       this.display.innerText += value;
     }
+
+    this.updateValues();
   }
 
   handleDelete() {
@@ -29,67 +44,76 @@ export class Calculator {
     if (this.display.innerText === "") {
       this.display.innerText = "0";
     }
+
+    this.updateValues();
   }
 
   handleReset() {
     this.display.innerText = "0";
+    this.memoDisplay.innerText = "";
     this.action = "";
-    this.storedValue = 0;
+    this.firstValue = 0;
+    this.secondValue = 0;
   }
 
   handleAdd() {
-    this.storedValue = toNumber(this.display.innerText);
     this.action = "+";
 
     this.display.innerText = "0";
+    this.memoDisplay.innerText = `${toString(this.firstValue)} ${this.action}`;
   }
 
   handleSubtract() {
-    this.storedValue = toNumber(this.display.innerText);
     this.action = "-";
 
     this.display.innerText = "0";
+    this.memoDisplay.innerText = `${toString(this.firstValue)} ${this.action}`;
   }
 
   handleMultiply() {
-    this.storedValue = toNumber(this.display.innerText);
     this.action = "*";
 
     this.display.innerText = "0";
+    this.memoDisplay.innerText = `${toString(this.firstValue)} ${this.action}`;
   }
 
   handleDivide() {
-    this.storedValue = toNumber(this.display.innerText);
     this.action = "/";
 
     this.display.innerText = "0";
+    this.memoDisplay.innerText = `${toString(this.firstValue)} ${this.action}`;
   }
 
   handleNegate() {
-    this.storedValue = toNumber(this.display.innerText) * -1;
+    this.firstValue = toNumber(this.display.innerText) * -1;
 
-    this.display.innerText = toString(this.storedValue);
+    this.display.innerText = toString(this.firstValue);
+    if (this.memoDisplay.innerText) {
+      this.memoDisplay.innerText = `${toString(this.firstValue)} ${this.action} ${toString(this.secondValue)}`;
+    }
   }
 
   handlePercentage() {
-    this.storedValue = toNumber(this.display.innerText) / 100;
+    this.firstValue = toNumber(this.display.innerText) / 100;
 
-    this.display.innerText = toString(this.storedValue);
+    this.display.innerText = toString(this.firstValue);
+    this.memoDisplay.innerText = `${toString(this.firstValue)} ${this.action}`;
   }
 
   handleCalculate() {
+    const prevValue = this.firstValue;
+
     if (this.action !== "") {
-      this.storedValue = calculateValue(
-        this.storedValue,
-        toNumber(this.display.innerText),
+      this.firstValue = calculateValue(
+        this.firstValue,
+        this.secondValue,
         this.action,
       );
-
-      this.action = "";
     } else {
-      this.storedValue = toNumber(this.display.innerText);
+      this.firstValue = toNumber(this.display.innerText);
     }
 
-    this.display.innerText = toString(this.storedValue);
+    this.display.innerText = toString(this.firstValue);
+    this.memoDisplay.innerText = `${toString(prevValue)} ${this.action} ${toString(this.secondValue)} =`;
   }
 }
