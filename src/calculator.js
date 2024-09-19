@@ -54,9 +54,20 @@ export class Calculator {
         this.display.innerText += value;
       }
     } else if (this.display.innerText === "0") {
-      this.display.innerText = value;
+      if (value === "-") {
+        this.handleNegate();
+        this.display.innerText = "-0";
+      } else {
+        this.display.innerText = value;
+      }
+    } else if (this.display.innerText === "-0") {
+      this.display.innerText = `-${value}`;
     } else {
-      this.display.innerText += value;
+      if (value === "-") {
+        this.handleSubtract();
+      } else {
+        this.display.innerText += value;
+      }
     }
 
     this.updateFontSize();
@@ -115,7 +126,7 @@ export class Calculator {
   }
 
   handleNegate() {
-    this.firstValue = toNumber(this.display.innerText) * -1;
+    this.firstValue = toNumber(this.display.innerText) * -1n;
 
     this.display.innerText = toString(this.firstValue);
     if (this.memoDisplay.innerText) {

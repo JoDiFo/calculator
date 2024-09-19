@@ -67,7 +67,7 @@ document.body.addEventListener("keydown", (e) => {
       calculator.handleAdd();
       break;
     case "-":
-      calculator.handleSubtract();
+      calculator.handleValueInput(key);
       break;
     case "*":
       calculator.handleMultiply();
