@@ -137,10 +137,12 @@ export class Calculator {
   }
 
   handlePercentage() {
-    this.firstValue = toNumber(this.display.innerText) / 100;
+    this.firstValue /= 100;
 
     this.display.innerText = toString(this.firstValue);
     this.memoDisplay.innerText = `${toString(this.firstValue)} ${this.action}`;
+
+    this.updateFontSize();
   }
 
   handleCalculate() {
