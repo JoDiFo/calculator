@@ -156,10 +156,14 @@ export class Calculator {
       this.firstValue = toNumber(this.display.innerText);
     }
 
-    console.log(this.firstValue, this.secondValue);
-
     this.display.innerText = toString(this.firstValue);
-    this.memoDisplay.innerText = `${toString(prevValue)} ${this.action} ${toString(this.secondValue)} =`;
+
+    if (this.secondValue === 0) {
+      this.memoDisplay.innerText = `${toString(prevValue)} =`;
+    } else {
+      this.memoDisplay.innerText = `${toString(prevValue)} ${this.action} ${toString(this.secondValue)} =`;
+    }
+
     this.updateFontSize();
   }
 }
