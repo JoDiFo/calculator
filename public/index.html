@@ -8,10 +8,12 @@
   <body>
     <div class="theme-switch">
       <span>Dark</span>
-      <button id="theme-button"><div class="theme-circle"></div></button>
+      <button id="theme-button" name="theme switcher">
+        <div class="theme-circle"></div>
+      </button>
       <span>Light</span>
     </div>
-    <button id="help-button">?</button>
+    <button id="help-button" name="help">?</button>
     <div id="help-block" class="help-block hidden">
       You can use keyboard to type in the calculator.
       <br />
@@ -27,25 +29,27 @@
         <p id="display">0</p>
       </div>
       <div class="button-container">
-        <button class="functional-button" id="reset">C</button>
-        <button class="functional-button" id="percent">%</button>
-        <button class="functional-button" id="negate">+/-</button>
-        <button class="functional-button" id="calculate">=</button>
-        <button class="number-btn">7</button>
-        <button class="number-btn">8</button>
-        <button class="number-btn">9</button>
-        <button class="functional-button" id="plus">+</button>
-        <button class="number-btn">4</button>
-        <button class="number-btn">5</button>
-        <button class="number-btn">6</button>
-        <button class="functional-button" id="minus">-</button>
-        <button class="number-btn">3</button>
-        <button class="number-btn">2</button>
-        <button class="number-btn">1</button>
-        <button class="functional-button" id="multiply">*</button>
-        <button class="number-btn double">0</button>
-        <button class="number-btn">,</button>
-        <button class="functional-button" id="divide">/</button>
+        <button name="clear" class="functional-button" id="reset">C</button>
+        <button name="percent" class="functional-button" id="percent">%</button>
+        <button name="negate" class="functional-button" id="negate">+/-</button>
+        <button name="equal" class="functional-button" id="calculate">=</button>
+        <button name="7" class="number-btn">7</button>
+        <button name="8" class="number-btn">8</button>
+        <button name="9" class="number-btn">9</button>
+        <button name="plus" class="functional-button" id="plus">+</button>
+        <button name="4" class="number-btn">4</button>
+        <button name="5" class="number-btn">5</button>
+        <button name="6" class="number-btn">6</button>
+        <button name="minus" class="functional-button" id="minus">-</button>
+        <button name="3" class="number-btn">3</button>
+        <button name="2" class="number-btn">2</button>
+        <button name="1" class="number-btn">1</button>
+        <button name="multiply" class="functional-button" id="multiply">
+          *
+        </button>
+        <button name="0" class="number-btn double">0</button>
+        <button name="comma" class="number-btn">,</button>
+        <button name="divide" class="functional-button" id="divide">/</button>
       </div>
     </div>
   </body>
