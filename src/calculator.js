@@ -62,7 +62,6 @@ export class Calculator {
     } else if (this.display.innerText === "0") {
       if (value === "-") {
         this.handleNegate();
-        this.display.innerText = "-0";
       } else {
         this.display.innerText = value;
       }
@@ -141,7 +140,12 @@ export class Calculator {
   handleNegate() {
     this.firstValue *= -1;
 
-    this.display.innerText = toString(this.firstValue);
+    if (this.firstValue === 0) {
+      this.display.innerText = "-0";
+    } else {
+      this.display.innerText = toString(this.firstValue);
+    }
+
     if (this.memoDisplay.innerText) {
       this.memoDisplay.innerText = `${toString(this.firstValue)} ${this.action} ${toString(this.secondValue)}`;
     }

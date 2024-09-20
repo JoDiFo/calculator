@@ -1,4 +1,4 @@
-import { MAX_SMALL_DISPLAY_LENGTH } from "../constants.js";
+import { MAX_PRECISION } from "../constants.js";
 
 /**
  *
@@ -7,9 +7,7 @@ import { MAX_SMALL_DISPLAY_LENGTH } from "../constants.js";
  */
 export function toNumber(str) {
   if (typeof str === "string") {
-    return Number(
-      Number(str.split(",").join(".")).toPrecision(MAX_SMALL_DISPLAY_LENGTH),
-    );
+    return Number(Number(str.split(",").join(".")).toFixed(MAX_PRECISION));
   }
 
   return str;
@@ -21,7 +19,7 @@ export function toNumber(str) {
  * @returns converted number
  */
 export function toString(num) {
-  return Number(num).toString().split(".").join(",");
+  return num.toString().split(".").join(",");
 }
 
 /**

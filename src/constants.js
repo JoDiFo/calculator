@@ -13,3 +13,5 @@ export const DISPLAY_SMALL_FONT_SIZE = 24;
 export const MAX_MEMO_LENGTH = 25;
 export const SMALL_MEMO_FONT_SIZE = 14;
 export const BIG_MEMO_FONT_SIZE = 20;
+
+export const MAX_PRECISION = 11;
