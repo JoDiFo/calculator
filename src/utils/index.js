@@ -1,12 +1,15 @@
+import { MAX_SMALL_DISPLAY_LENGTH } from "../constants.js";
+
 /**
  *
  * @param {string} str string to convert
  * @returns converted string
  */
-
 export function toNumber(str) {
   if (typeof str === "string") {
-    return Number(str.split(",").join(".")).toFixed(9);
+    return Number(
+      Number(str.split(",").join(".")).toPrecision(MAX_SMALL_DISPLAY_LENGTH),
+    );
   }
 
   return str;
@@ -29,11 +32,12 @@ export function toString(num) {
  * @returns result of the operation
  */
 export function calculateValue(first, second, operation) {
+  console.log(first, second);
   switch (operation) {
     case "+":
-      return first + second;
+      return Number(first + second);
     case "-":
-      return first - second;
+      return Number(first - second);
     case "*":
       return first * second;
     case "/":
