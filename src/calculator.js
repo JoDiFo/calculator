@@ -63,7 +63,11 @@ export class Calculator {
         this.display.innerText = value;
       }
     } else if (this.display.innerText === "-0") {
-      this.display.innerText = `-${value}`;
+      if (value !== "-") {
+        this.display.innerText = `-${value}`;
+      } else {
+        this.handleSubtract();
+      }
     } else {
       if (value === "-") {
         this.handleSubtract();
@@ -128,12 +132,14 @@ export class Calculator {
   }
 
   handleNegate() {
-    this.firstValue = toNumber(this.display.innerText) * -1n;
+    this.firstValue *= -1;
 
     this.display.innerText = toString(this.firstValue);
     if (this.memoDisplay.innerText) {
       this.memoDisplay.innerText = `${toString(this.firstValue)} ${this.action} ${toString(this.secondValue)}`;
     }
+
+    this.updateFontSize();
   }
 
   handlePercentage() {

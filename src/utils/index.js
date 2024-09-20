@@ -32,7 +32,6 @@ export function toString(num) {
  * @returns result of the operation
  */
 export function calculateValue(first, second, operation) {
-  console.log(first, second);
   switch (operation) {
     case "+":
       return Number(first + second);
