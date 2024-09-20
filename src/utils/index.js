@@ -6,7 +6,7 @@
 
 export function toNumber(str) {
   if (typeof str === "string") {
-    return Number(str.split(",").join("."));
+    return Number(str.split(",").join(".")).toFixed(9);
   }
 
   return str;
