@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="A website with calculator" />
+    <meta name="keywords" content="calculator, math" />
+    <title>Calculator</title>
+  </head>
+  <body>
+    <div class="theme-switch">
+      <span>Dark</span>
+      <button aria-label="theme" id="theme-button" name="theme switcher">
+        <div class="theme-circle"></div>
+      </button>
+      <span>Light</span>
+    </div>
+    <button aria-label="help" id="help-button" name="help">?</button>
+    <div id="help-block" class="help-block hidden">
+      You can use keyboard to type in the calculator.
+      <br />
+      C(c) for resetting
+      <br />
+      N(n) for negating
+      <br />
+      f1 for help
+    </div>
+    <div class="calculator">
+      <div class="display-container">
+        <p id="memo-display"></p>
+        <p id="display">0</p>
+      </div>
+      <div class="button-container">
+        <button
+          aria-label="clear"
+          name="clear"
+          class="functional-button"
+          id="reset"
+        >
+          C
+        </button>
+        <button
+          aria-label="percent"
+          name="percent"
+          class="functional-button"
+          id="percent"
+        >
+          %
+        </button>
+        <button
+          aria-label="negate"
+          name="negate"
+          class="functional-button"
+          id="negate"
+        >
+          +/-
+        </button>
+        <button
+          aria-label="equal"
+          name="equal"
+          class="functional-button"
+          id="calculate"
+        >
+          =
+        </button>
+        <button aria-label="7" name="7" class="number-btn">7</button>
+        <button aria-label="8" name="8" class="number-btn">8</button>
+        <button aria-label="9" name="9" class="number-btn">9</button>
+        <button
+          aria-label="plus"
+          name="plus"
+          class="functional-button"
+          id="plus"
+        >
+          +
+        </button>
+        <button aria-label="4" name="4" class="number-btn">4</button>
+        <button aria-label="5" name="5" class="number-btn">5</button>
+        <button aria-label="6" name="6" class="number-btn">6</button>
+        <button
+          aria-label="minus"
+          name="minus"
+          class="functional-button"
+          id="minus"
+        >
+          -
+        </button>
+        <button aria-label="3" name="3" class="number-btn">3</button>
+        <button aria-label="2" name="2" class="number-btn">2</button>
+        <button aria-label="1" name="1" class="number-btn">1</button>
+        <button
+          aria-label="multiply"
+          name="multiply"
+          class="functional-button"
+          id="multiply"
+        >
+          *
+        </button>
+        <button aria-label="0" name="0" class="number-btn double">0</button>
+        <button aria-label="comma" name="comma" class="number-btn">,</button>
+        <button
+          aria-label="divide"
+          name="divide"
+          class="functional-button"
+          id="divide"
+        >
+          /
+        </button>
+      </div>
+    </div>
+  </body>
+</html>

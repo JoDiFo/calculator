@@ -1,0 +1,83 @@
+@import url(./themeSwitcher.css);
+@import url(./help.css);
+@import url(./display.css);
+
+@font-face {
+  font-family: Roboto;
+  src: url(../assets/fonts/Roboto-Regular.woff);
+}
+
+body.light {
+  --background: #f2f2f2;
+  --calculator-background: #d1d1d1;
+  --border: #35353b;
+  --button-background: #f2f2f2;
+  --functional-button-background: #2a9fff;
+  --font-color: #1c1c24;
+}
+
+body.dark {
+  --background: #252529;
+  --calculator-background: #35353b;
+  --border: #7e7e7e;
+  --button-background: #252529;
+  --functional-button-background: #ffad2a;
+  --font-color: #f2f2f2;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Roboto, sans-serif;
+}
+
+body {
+  background-color: var(--background);
+  height: 100vh;
+  display: grid;
+  place-items: center;
+}
+
+.calculator {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--calculator-background);
+  width: 330px;
+  height: 500px;
+  border: 2px solid var(--border);
+  border-radius: 4px;
+  padding: 4px;
+}
+
+.button-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  flex-grow: 1;
+}
+
+.button-container .functional-button {
+  background-color: var(--functional-button-background);
+}
+
+.double {
+  grid-column: span 2;
+}
+
+.button-container button {
+  cursor: pointer;
+  border: none;
+  background-color: var(--button-background);
+  color: var(--font-color);
+  font-size: 24px;
+  border-radius: 3px;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+button:active {
+  opacity: 0.6;
+}

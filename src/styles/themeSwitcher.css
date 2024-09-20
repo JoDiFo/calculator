@@ -1,0 +1,39 @@
+.theme-switch {
+  position: fixed;
+  left: 20px;
+  top: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.theme-switch span {
+  color: var(--font-color);
+  font-size: 18px;
+}
+
+#theme-button {
+  position: relative;
+  border: 1px solid var(--border);
+  width: 40px;
+  height: 20px;
+  border-radius: 10px;
+  background-color: var(--calculator-background);
+}
+
+body.dark .theme-switch .theme-circle {
+  transform: translateX(-1px);
+}
+
+body.light .theme-switch .theme-circle {
+  transform: translateX(20px);
+}
+
+.theme-switch .theme-circle {
+  width: 19px;
+  height: 19px;
+  transition: transform 0.3s;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background-color: var(--background);
+}
