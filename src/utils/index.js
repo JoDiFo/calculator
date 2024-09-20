@@ -1,5 +1,3 @@
-import { MAX_SMALL_DISPLAY_LENGTH } from "../constants.js";
-
 /**
  *
  * @param {string} str string to convert
@@ -8,12 +6,7 @@ import { MAX_SMALL_DISPLAY_LENGTH } from "../constants.js";
 
 export function toNumber(str) {
   if (typeof str === "string") {
-    const bigInt = BigInt(str.split(",").join("."));
-    if (str.length > MAX_SMALL_DISPLAY_LENGTH) {
-      return Number(bigInt);
-    }
-
-    return bigInt;
+    return Number(str.split(",").join("."));
   }
 
   return str;
@@ -21,7 +14,7 @@ export function toNumber(str) {
 
 /**
  *
- * @param {bigint} num number to convert
+ * @param {number} num number to convert
  * @returns converted number
  */
 export function toString(num) {
@@ -30,8 +23,8 @@ export function toString(num) {
 
 /**
  *
- * @param {bigint} first first value
- * @param {bigint} second second value
+ * @param {number} first first value
+ * @param {number} second second value
  * @param {string} operation operation to perform
  * @returns result of the operation
  */
@@ -44,7 +37,7 @@ export function calculateValue(first, second, operation) {
     case "*":
       return first * second;
     case "/":
-      return Number(first) / Number(second);
+      return first / second;
     default:
       throw new Error("Unknown Operation");
   }
