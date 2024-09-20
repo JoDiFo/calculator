@@ -72,6 +72,9 @@ export class Calculator {
       } else {
         this.handleSubtract();
       }
+    } else if (this.display.innerText == "Infinity") {
+      this.handleReset();
+      this.display.innerText = value;
     } else {
       if (value === "-") {
         this.handleSubtract();
