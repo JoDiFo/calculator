@@ -28,8 +28,6 @@ export class Calculator {
     } else {
       this.firstValue = toNumber(this.display.innerText);
     }
-
-    console.log(this.firstValue, this.secondValue);
   }
 
   updateFontSize() {
@@ -48,6 +46,12 @@ export class Calculator {
 
   handleValueInput(value) {
     if (this.display.innerText.length >= MAX_SMALL_DISPLAY_LENGTH) {
+      if (value === "-") {
+        this.handleSubtract();
+        this.updateFontSize();
+        this.updateValues();
+      }
+
       return;
     }
 
